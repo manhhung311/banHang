@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Admin
+	</title>
+	<link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+	<script type="text/javascript" src="../bootstrap.min.css"></script>
+</head>
+<body>
+	
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Trang Chủ</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  </nav>
+
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../img_mouseover1.jpg" class="d-block w-100" style="height: 300px;" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="../img_mouseover2.jpg" class="d-block w-100" style="height: 300px;" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="../img_mouseover3.jpg" class="d-block w-100" style="height: 300px;" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <div class="container" style="max-width: 100%;">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+            The current link item
+          </a>
+          <a href="/addcategory" class="list-group-item list-group-item-action">Tạo danh mục mới</a>
+          <a href="/upload" class="list-group-item list-group-item-action">Thêm sản phẩm</a>
+          <a href="/productadmin" class="list-group-item list-group-item-action">Xem tất cả sản phầm</a>
+          <a href="#" class="list-group-item list-group-item-action">Xem đơn hàng đã bán</a>
+          <a href="/logoutadmin" class="list-group-item list-group-item-action" tabindex="-1">Logout</a>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <!-- thêm  danh mục -->
+        <%if(linkCategory){%>
+
+          <div class="container">
+            <div class="row">
+              <div class="col">
+
+                <ol class="list-group list-group-numbered">
+                  <%categoryData.forEach((category)=>{%>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold"><%-category.name%></div>
+                      <%-category.name%>
+                    </div>
+                    <span class="badge bg-primary rounded-pill"><%-category.idProduct.length%></span>
+                  </li>
+                  <%})%>
+                </ol>
+              </div>
+              <div class="col">
+                Thêm danh mục:<br>
+                <form method="POST" action="/addcategory" style="margin-top: 50px;">
+                  <input type="text" name="category">
+                  <input type="submit" name="submit" value="Gửi">
+                </form>
+              </div>
+            </div>
+          </div>
+
+          
+
+
+
+        <%}%>
+
+        <!-- upload sản phẩm -->
+
+        <%if(linkUpload){%>
+          <form action="/upload" method="POST" enctype="multipart/form-data" style="margin: auto;">
+            Danh Mục:
+            <select name="category" style="margin-top: 10px;">
+              <% categoryData.forEach((cate)=>{ %>
+                  <option value="<%- cate._id%>">
+                      <%-cate.name%>
+                  </option>
+              <%})%>
+            </select>
+            <br>
+            <br>Name:
+            <input type="text" name="name">
+            <br>Price:
+            <input type="number" name="price">
+            <br>intro:
+            <input type="text" name="intro">
+            <br>file:
+            <div class="input-group mb-3">
+                <input type="file" class="form-control" id="inputGroupFile02" name="img">
+                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+            </div>
+            <br>Tổng số lượng :
+            <input type="number" name="total">
+            <br>
+            <input type="submit" name="submit" value="Gửi">
+        </form>
+
+        <%}%>
+
+        <!-- sửa xóa sản phẩm -->
+
+        <%if(linkProduct){%>
+          <div class="container">
+            <div class="row g-5">
+              <%productData.forEach(product=> {%>
+                <div class="col-4">
+                  <div class="p-5 border bg-light">
+                    <div>
+                      <img src="/<%- product.img %>" alt="" style="width: 300px; height: 400px;">
+                      <h1><%- product.name%></h1>
+                      <p><%- product.price%><sup>đ</sup></p>
+                      <a href="/edit/<%- product._id%>"><button>Sửa</button></a>
+                      <a href="/productadmin/<%- product._id%>"><button>Xem</button></a>
+                    </div>
+                  </div>
+                </div>
+              <%})%>
+            </div>
+          </div>
+
+        <%}%>
+
+        <!-- xem đơn hàng đã bán  -->
+        <%if(linkEdit){%>
+          <%product%>
+              <img src="../<%-product.img%>" style="height: 600px; width: 500px;" >
+          
+            <form action="/edit" method="POST">
+              <select name="category" style="margin-top: 10px;">
+                <%var dem = 0 ;%>
+                <%for(let i = 0 ; i < categoryData.length ; i++){%>
+                      <%for(let j = 0 ; j < categoryData.length ; j++){%>
+                            <%if(categoryData[j]._id == product.category && dem == 0){%>
+                              <option value="<%- categoryData[j]._id%>">
+                                <%-categoryData[j].name%>
+                                <%dem++;%>
+                              </option>
+                            <%}%>
+                        <%}%>
+                        <%if(categoryData[i]._id != product.category){%>
+                          <option value="<%- categoryData[i]._id%>">
+                            <%-categoryData[i].name%>
+                          </option>
+                      <%}%>
+                <%}%>
+              </select>
+              <br>
+              Name: 
+              <input type="text" value="<%- product.name%>" name="name">
+              <br><br>
+              Giá : 
+              <input type="number" value="<%-product.price%>" name="price">
+              <br><br>
+              <textarea name="intro"  value="<%- product.intro%>" cols="70" rows="9"><%- product.intro%>
+              </textarea>
+              <br><br>
+              Số lượng
+              <input type="number" value="<%- product.total%>" name="total">
+              <br><br>
+              <input type="submit" name="submit" > 
+            </form>
+
+            
+
+        <%}%>
+        <!-- logout -->
+        <%if(linkSales){%>
+          <div class="container">
+            <div class="row g-5">
+              <%salesData.forEach(product=> {%>
+                <div class="col-4">
+                  <div class="p-5 border bg-light">
+                    <div>
+                      <p>Mã sản phẩm : </p>
+                      <%product.idProduct.forEach(id=>{%>
+                        <p><%- id%></p>
+                      <%})%>
+                      <p>Mã khách hàng</p>
+                      <p><%- product.idAccount%></p>
+                      <p>Ngày : </p>
+                      <p><%- product.date%></p>
+                      <p>Tổng tiền : </p>
+                      <p><%- product.amount%></p>
+                    </div>
+                  </div>
+                </div>
+              <%})%>
+            </div>
+          </div>
+
+        <%}%>
+        <%if(false){%>
+        <%}%>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</body>
+</html>

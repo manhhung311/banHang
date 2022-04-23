@@ -1,0 +1,21 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form method="POST" action="/addcategory">
+        <input type="text" name="category">
+        <input type="submit" name="submit" value="Gửi">
+        </form>
+    
+        <% if(result ===""){%>
+        <h1>hello</h1> 
+        <%}%>
+        <% if(result ===true){%>
+            <h1>đã tạo </h1> 
+            <%}%>
+        <% if(result ===false){%>
+                <h1>err server </h1> 
+             <%}%>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+        <script type="text/javascript" src="bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <select name="category">
+                Danh Mục
+                <% data.forEach((cate)=>{ %>
+                    <option value="<%- cate._id%>">
+                        <%-cate.name%>
+                    </option>
+                <%})%>
+            </select>
+            <br>Name:
+            <input type="text" name="name">
+            <br>Price:
+            <input type="number" name="price">
+            <br>intro:
+            <input type="text" name="intro">
+            <br>file:
+            <div class="input-group mb-3">
+                <input type="file" class="form-control" id="inputGroupFile02" name="img">
+                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+            </div>
+            <br>Tổng số lượng :
+            <input type="number" name="total">
+            <br>
+            <input type="submit" name="submit" value="Gửi">
+        </form>
+    </body>
+</html>

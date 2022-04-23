@@ -1,0 +1,440 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.row {
+    display: flex;
+}
+
+header {
+    display: flex;
+    padding: 15px 40px;
+    height: 95px;
+    align-items: center;
+    flex-direction: row;
+    background-color: white;
+}
+
+.i-menu.fix {
+    left: 0;
+    max-width: 100%;
+    overflow: visible;
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    padding-left: 20px;
+    flex: 1;
+    cursor: pointer;
+}
+
+.menu {
+    flex: 2;
+    display: flex;
+}
+
+.menu>li {
+    padding: 0 30px;
+    position: relative;
+}
+
+.menu>li:hover .sub-menu {
+    visibility: visible;
+    top: 30px;
+}
+
+.menu li ul li {
+    padding: 5px 5px;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.sub-menu {
+    position: absolute;
+    width: 100px;
+    border: 1px solid #ccc;
+    padding: 15px 0 15px 5px;
+    visibility: hidden;
+    top: 50px;
+    transition: 0.5s;
+    z-index: 1;
+    background-color: white;
+}
+
+.menu>li>a {
+    font-size: 15px;
+    font-weight: bold;
+    display: block;
+    line-height: 50px;
+}
+
+.uses {
+    flex: 1;
+    display: flex;
+}
+
+.uses li {
+    padding: 0 15px;
+}
+
+.uses>li:first-child {
+    position: relative;
+}
+
+.uses>li:first-child input {
+    width: 100%;
+    border: none;
+}
+
+.uses>li:first-child i {
+    position: absolute;
+    right: 10px;
+}
+
+#slide {
+    padding-top: 80px;
+}
+
+.aspect-ratio-169 {
+    display: block;
+    position: relative;
+    padding-top: 56.25%;
+}
+
+.aspect-ratio-169 img {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+
+/*------app------*/
+
+.app-container {
+    text-align: center;
+    align-items: center;
+    padding: 70px 0 50px 0;
+}
+
+.app-container {
+    line-height: 20px;
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.app {
+    margin: 50px;
+}
+
+.app img {
+    height: 70px;
+}
+
+
+/*-------------------------cartegory------------------*/
+
+.cartegory {
+    padding-top: 100px;
+}
+
+.cartegory-top {
+    margin-bottom: 40px;
+}
+
+.cartegory-top p {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 12px;
+    font: 12px;
+    ;
+}
+
+.cartegory-left {
+    width: 20%;
+    padding: 10px 5px;
+}
+
+.cartegory-left-li {
+    padding: 10px 0px;
+}
+
+.cartegory-left-li ul li {
+    padding: 5px 5px;
+}
+
+.cartegory-left ul li ul li a {
+    color: #333;
+    font-size: 12px;
+}
+
+.cartegory-left ul li>a {
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cartegory-left ul li ul li>a {
+    padding-left: 10px;
+}
+
+.cartegory-left-li ul {
+    display: none;
+}
+
+.cartegory-left-li.block ul {
+    display: block;
+}
+
+.cartegory-right {
+    margin-left: 100px;
+}
+
+.cartegory-right-item p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.cartegory-right-content {
+    margin-top: 50px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.cartegory-right-content-item {
+    width: calc(25% - 12px);
+    text-align: center;
+    padding: 12px 50px 12px 0;
+}
+
+.cartegory-right-content-item h1 {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 6px;
+    color: #333;
+}
+
+.cartegory-right-content-item img {
+    width: 80%;
+}
+
+.cartegory-right-content-item p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.cartegory-right-bottom {
+    justify-content: space-between;
+    margin: 30px 0 20px;
+    width: 90%;
+    padding-left: 100px;
+}
+
+.cartegory-right-bottom p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+
+/*-------------------------Product------------------*/
+
+.product {
+    padding: 100px 12px;
+}
+
+.product-top {
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.product-top p {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 12px;
+    font-size: 12px;
+}
+
+.product-content-left {
+    padding: 0 100px;
+    width: 50%;
+}
+
+.product-content-right {
+    width: 50%;
+}
+
+.product-content-left-img {
+    width: 80%;
+}
+
+.product-content-left-img img {
+    width: 100%;
+}
+
+.product-content-right-name h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.product-content-right-name p {
+    color: #ccc;
+    font-size: 12px;
+}
+
+.product-content-right-price {
+    margin: 12px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.quantity {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.quantity input {
+    width: 35px;
+    padding-left: 6px;
+}
+
+.product-content-right-button button {
+    width: 100px;
+    height: 40px;
+    display: block;
+    margin: 20px 0 12px;
+    transition: all 0.7s ease;
+}
+
+.product-content-right-button button:first-child {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.product-content-right-button button:first-child:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+
+/*------------------form----------------*/
+
+.main {
+    background-color: whitesmoke;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form {
+    background-color: white;
+    border-radius: 20px;
+    height: 500px;
+    padding: 20px;
+    width: 320px;
+}
+
+.form1 {
+    background-color: white;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 500px;
+    padding: 20px;
+    width: 320px;
+    margin-left: 10%;
+}
+
+#title {
+    color: black;
+    margin-top: 30px;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+#subtitle {
+    color: black;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.ic1 {
+    height: 50px;
+    position: relative;
+    width: 100%;
+}
+
+.i1 {
+    margin-top: 30px;
+}
+
+.ic {
+    margin-top: 20px;
+}
+
+.input {
+    background-color: whitesmoke;
+    border-radius: 12px;
+    border: 0px;
+    box-sizing: border-box;
+    color: black;
+    font-size: 18px;
+    height: 100%;
+    width: 100%;
+    outline: 0px;
+    padding: 4px 20px 0;
+}
+
+.label {
+    color: black;
+}
+
+.quenmatkhau {
+    color: black;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+}
+
+a {
+    color: black;
+}
+
+.submit {
+    background-color: #ff5a60;
+    border-radius: 12px;
+    border: 0px;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+}
